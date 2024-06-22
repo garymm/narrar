@@ -1,0 +1,47 @@
+#:schema https://json.schemastore.org/pyproject.json
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "narrar"
+requires-python = ">=3.11"
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#static-vs-dynamic-metadata
+dynamic = ["version"]
+
+[tool.ruff.lint]
+select = [
+    "A",   # flake8-builtins
+    "B",   # flake8-bugbear
+    "E",   # pycodestyle
+    "F",   # Pyflakes
+    "I",   # isort
+    "PT",  # flake8-pytest-style
+    "SIM", # flake8-simplify
+    "UP",  # pyupgrade
+]
+ignore = [
+    "A003",   # builtin-attribute-shadowing
+    "SIM108", # Use the ternary operator
+]
+
+[tool.ruff]
+target-version = "py311"
+
+[tool.pyright]
+typeCheckingMode = "standard"
+venvPath = ".pixi/envs"
+venv = "default"
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers"
+
+[tool.setuptools]
+packages = ["narrar"]
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tool.pixi.pypi-dependencies]
+narrar = { path = ".", editable = true }
