@@ -22,5 +22,10 @@
         "**/.ruff_cache": true,
         "**/.pixi": true,
         "**/*.egg-info": true
-    }
+    },
+    "cSpell.words": [
+        "elevenlabs",
+        "imencode",
+        "openai"
+    ]
 }

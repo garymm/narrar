@@ -3,3 +3,4 @@
 **/.ruff_cache
 **/.pixi
 **/*.egg-info
+config.toml
